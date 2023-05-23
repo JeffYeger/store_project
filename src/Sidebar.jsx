@@ -6,11 +6,11 @@ function Sidebar() {
 
     const {cartTotal, setCartTotal, setTotalProducts ,totalProducts} = useContext(StoreContext)
   return (
-    <div onClick={()=>{
+    <div className='sidebar' onClick={()=>{
         setTotalProducts(totalProducts + 1)
         setCartTotal(cartTotal + 1)
     }}>Sidebar
-        {cartTotal}{totalProducts}
+        {cartTotal}and {totalProducts}
         
     </div>
   )

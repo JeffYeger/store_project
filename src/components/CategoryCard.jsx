@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Products from '../products.json'
 
-function CategoryCard() {
-const [categories,setCategories] = useState([])
-const tempCategories = categories
-
-if (tempCategories.length == 0){
-  Products.forEach((product)=>{
-    if (!tempCategories.includes(product.category)){
-      tempCategories.push(product.category)
-    }
-  })
-}
+function CategoryCard(props) {
 
 
   return (
-    <div>CategoryCard</div>
+    <div className='categoryCard'
+    onClick={()=>{
+      return    console.log ("jhjj")
+   
+    }
+    }
+    >
+      {props.name}
+     </div>
   )
 }
 

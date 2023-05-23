@@ -5,7 +5,7 @@ function Header() {
 
     const {cartTotal, } = useContext(StoreContext)
   return (
-    <div>
+    <div className='header'>
        <nav> <h1>Welcome To My Store {cartTotal}</h1></nav>
         </div>
   )
