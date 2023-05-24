@@ -1,30 +1,38 @@
 import React from 'react'
+import {Routes,Route} from "react-router-dom"
+import CategoryList from './CategoryList'
+import { useContext } from 'react'
+import { StoreContext } from './StoreContext'
 import CategoryCard from './components/CategoryCard'
-import Products from './products.json'
+import ProductList from './components/ProductList'
+
 
 function Body() {
 
-  let category = []
-  let tempCategory = []
-Products.map((v)=>{
-  !category.includes(v.category)
-  category.push(v.category)
-})
-{category.forEach((v)=>{
-  if (!tempCategory.includes(v)){
-    tempCategory.push(v)
-  }
-}) }
+const {categories} = useContext(StoreContext)
+    return (
+        <div 
+         className='body'>
+           
+            <Routes>
+                <Route path="/" element={<CategoryList />} />
+                <Route path="/electronics" element={<ProductList name = "electronics"/>} />
+                <Route path="/jewelry" element={<ProductList name = "jewelry" />} />
+                <Route path="/mensclothing" element={<ProductList name = {'mensclothing'} />} />
+                <Route path="/womensclothing" element={<ProductList name = {'womensclothing'} />} />
+                {/* {categories.map ((v)=>{
+                    return <Route path={`/categories/${v}`} element={<ProductList category = {v}/>} /> */}
+                {/* })} */}
+                
+                
+                
 
-  return (
-    <div className='body'>
-    
-    {tempCategory.map((v)=>{
-return <CategoryCard name = {v}/>
-    })}
-    
-    </div>
-  )
+            </Routes>
+
+           
+
+        </div>
+    )
 }
 
 export default Body

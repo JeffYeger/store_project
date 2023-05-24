@@ -1,14 +1,24 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-function Product(product,...props) {
+function Product(props) {
   return (
-    <div className='product'>
-      <img classname = 'styles.product_img' src={product.image}/>
-      <span></span>
+    <Routes>
+      <Route path = "/category/electronics" element = {<ProductCard/>}/>
+    <div 
+    
+    className='productcard'>
+
+      Shalom
+      {props.image}
+      {props.price}
+      {props.addToCart}
+      {props.description}
       
       
       
       </div>
+      </Routes>
   )
 }
 
